@@ -1,3 +1,5 @@
+# IN PROGRESS
+
 from typing import List, Any
 
 from test_data.sorting_data import UNSORTED_NUMERICAL_SEQUENCE
@@ -16,7 +18,7 @@ def right_index(index: int):
     return 2 * index + 2
 
 
-def max_heapify(target_list: List[Any], heap_size: int, root_index: int):
+def build_max_heap(target_list: List[Any], heap_size: int, root_index: int):
     start = parent_index(heap_size)
 
     if left <=
@@ -30,14 +32,14 @@ def heap_sort(target_list: List[Any]):
     """
     heap_size = len(target_list)
     for i in range(int(heap_size / 2 - 1), -1, -1):
-        max_heapify(target_list, heap_size, i)
+        build_max_heap(target_list, heap_size, i)
 
     for i in range(int(heap_size - 1), -1, -1):
         swap(target_list, 0, i)
 
-        max_heapify(target_list, i, 0)
+        build_max_heap(target_list, i, 0)
 
-    max_heapify(target_list)
+    build_max_heap(target_list)
     return target_list
 
 
